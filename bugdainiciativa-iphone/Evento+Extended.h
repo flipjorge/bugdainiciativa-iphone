@@ -15,5 +15,6 @@
 +(Evento*)generateEventoWithTitle:(NSString*)sTitle content:(NSString*)sContent link:(NSString*)sLink id:(NSString*)sId imageLink:(NSString*) sImageLink location:(NSString*)sLocation startDate:(NSDate*)sDate endDate:(NSDate*)eDate;
 
 +(NSArray*)events;
++(NSArray*)nextEvents;
 
 @end

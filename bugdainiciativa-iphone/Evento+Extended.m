@@ -19,7 +19,7 @@
 +(Evento *)generateEventoWithTitle:(NSString *)sTitle content:(NSString *)sContent link:(NSString *)sLink id:(NSString *)sId imageLink:(NSString *)sImageLink location:(NSString *)sLocation startDate:(NSDate *)sDate endDate:(NSDate *)eDate 
 {
     NSManagedObjectContext *context = [[FJCoreDataStack shared] managedObjectContext];
-    
+
     Evento *evento = [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:context];
     
     evento.title = sTitle;
@@ -30,7 +30,7 @@
     evento.location = sLocation;
     evento.startdate = sDate;
     evento.enddate = eDate;
-
+    
     return evento;
 }
 
@@ -42,5 +42,30 @@
     
     return [context executeFetchRequest:fetchRequest error:nil];
 }
+
++(NSArray *)nextEvents
+{
+    NSManagedObjectContext *context = [[FJCoreDataStack shared] managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"startdate" ascending:YES];
+    
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:sort];
+    
+    return [context executeFetchRequest:fetchRequest error:nil];
+}
+
+-(void)setImageData:(NSData *)imageData
+{
+    NSManagedObjectContext *context = [[FJCoreDataStack shared] managedObjectContext];
+    
+    [self willChangeValueForKey:@"imageData"];
+    [self setPrimitiveValue:imageData forKey:@"imageData"];
+    [self didChangeValueForKey:@"imageData"];
+    
+    [context save:nil];
+}
+
 
 @end

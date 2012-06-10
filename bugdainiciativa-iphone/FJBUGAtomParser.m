@@ -23,7 +23,7 @@
 @property(nonatomic, copy) NSURL *url;
 
 @property(nonatomic, strong) NSMutableArray *eventos;
-@property(nonatomic, strong) Evento *currentEvento;
+@property(nonatomic, strong) NSMutableDictionary *currentEvento;
 
 @end
 
@@ -60,6 +60,24 @@
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser
 {
+    NSArray *eventosLocais = [Evento events];
+    
+    for (NSMutableDictionary *eventoTemporario in self.eventos) {
+        
+        BOOL existe = NO;
+        
+        for (Evento *eventoLocal in eventosLocais) {
+            if( [[eventoTemporario objectForKey:@"id"] isEqual:eventoLocal.id] ){
+                existe = YES;
+                break;
+            }
+        }
+        
+        if( !existe ){
+            [Evento generateEventoWithTitle:[eventoTemporario objectForKey:@"title"] content:[eventoTemporario objectForKey:@"content"] link:[eventoTemporario objectForKey:@"link"] id:[eventoTemporario objectForKey:@"id"] imageLink:[eventoTemporario objectForKey:@"imageLink"] location:[eventoTemporario objectForKey:@"location"] startDate:[eventoTemporario objectForKey:@"startdate"] endDate:[eventoTemporario objectForKey:@"enddate"]];
+        }
+    }
+    
     [self.delegate bugAtomParser:self didParsedEventos:self.eventos];
 }
 
@@ -70,7 +88,7 @@
     if( [elementName isEqualToString:@"entry"] ){
         isEntries = YES;
         
-        Evento *evento = [Evento generateEvento];
+        NSMutableDictionary *evento = [NSMutableDictionary dictionary];
         self.currentEvento = evento;
         [self.eventos addObject:evento];
         
@@ -86,6 +104,8 @@
         currentElement = @"event_end_date";
     } else if( [elementName isEqualToString:@"thumbnail"] && isEntries ){
         currentElement = @"thumbnail";
+    } else if( [elementName isEqualToString:@"id"] && isEntries ) {
+        currentElement = @"id";
     }
     
 }
@@ -100,25 +120,27 @@
     NSDateFormatter *dateFormatter;
     
     if( [elementName isEqualToString:@"title"] && isEntries ){
-        self.currentEvento.title = currentString;
+        [self.currentEvento setObject:currentString forKey:@"title"];
     } else if( [elementName isEqualToString:@"content"] && isEntries ){
-        self.currentEvento.content = currentString;
+        [self.currentEvento setObject:currentString forKey:@"content"];
     } else if( [elementName isEqualToString:@"event_start_date"] && isEntries ){
         
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
         
-        self.currentEvento.startdate = [dateFormatter dateFromString:currentString];
+        [self.currentEvento setObject:[dateFormatter dateFromString:currentString] forKey:@"startdate"];
         
     } else if( [elementName isEqualToString:@"event_end_date"] && isEntries ){
         
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
         
-        self.currentEvento.enddate = [dateFormatter dateFromString:currentString];
+        [self.currentEvento setObject:[dateFormatter dateFromString:currentString] forKey:@"enddate"];
         
     } else if( [elementName isEqualToString:@"thumbnail"] && isEntries ){
-        self.currentEvento.imageLink = currentString;
+        [self.currentEvento setObject:currentString forKey:@"imageLink"];
+    } else if( [elementName isEqualToString:@"id"] && isEntries ) {
+        [self.currentEvento setObject:currentString forKey:@"id"];
     }
     
     currentElement = nil;

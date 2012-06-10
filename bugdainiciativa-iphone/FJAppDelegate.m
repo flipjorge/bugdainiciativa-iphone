@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 dJomba. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "FJAppDelegate.h"
 #import "FJCoreDataStack+Bug.h"
 #import "FJDirectory.h"
@@ -19,6 +20,7 @@
     FJCoreDataStack *coreDataStack = [FJCoreDataStack shared];
     coreDataStack.dataModelFilename = @"BugIniciativaModel";
     coreDataStack.storePath = [[FJDirectory documents] stringByAppendingPathComponent:@"BugIniciativa.sqlite"];
+    coreDataStack.storeType = NSSQLiteStoreType;
     [coreDataStack populateDatabase];
     
     // Override point for customization after application launch.

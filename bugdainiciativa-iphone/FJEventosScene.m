@@ -15,6 +15,7 @@
 
 @property(nonatomic,strong) FJBUGAtomParser *eventosParser;
 
+-(void)refresh;
 //-(void)reloadImage;
 
 @end
@@ -37,15 +38,19 @@
 {
     [super viewDidLoad];
     
-    self.eventos = [Evento events];
+    self.eventos = [Evento nextEvents];
     
     self.title = @"Eventos";
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    
+    /*
     NSURL *url = [NSURL URLWithString:@"http://bugdainiciativa.com/feed/atom/"];
     
     self.eventosParser = [[FJBUGAtomParser alloc] initWithURL:url andDelegate:self];
     
     [self.eventosParser parse];
+     */
 }
 
 - (void)viewDidUnload
@@ -96,7 +101,14 @@
     }];
      */
     
-    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink] ]];
+    if( evento.imageData ){
+        cell.imageView.image = [UIImage imageWithData:evento.imageData];
+    } else {
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink] ];
+        cell.imageView.image = [UIImage imageWithData:imageData];
+        evento.imageData = imageData;
+    }
+    
     
     return cell;
 }
@@ -117,9 +129,21 @@
 
 -(void)bugAtomParser:(FJBUGAtomParser *)atomParser didParsedEventos:(NSArray *)eventos
 {
-    self.eventos = eventos;
+    //self.eventos = eventos;
+    self.eventos = [Evento nextEvents];
     
     [self.tableView reloadData];
+}
+
+#pragma mark - Refresh
+
+-(void)refresh
+{
+    NSURL *url = [NSURL URLWithString:@"http://bugdainiciativa.com/feed/atom/"];
+    
+    self.eventosParser = [[FJBUGAtomParser alloc] initWithURL:url andDelegate:self];
+    
+    [self.eventosParser parse];
 }
 
 @end

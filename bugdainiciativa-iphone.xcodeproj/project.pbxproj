@@ -88,7 +88,6 @@
 		27C9A4B01582BB1A004FC975 = {
 			isa = PBXGroup;
 			children = (
-				27C9A50D1582BC71004FC975 /* CoreData.framework */,
 				27C9A4C51582BB1A004FC975 /* bugdainiciativa-iphone */,
 				27C9A4BE1582BB1A004FC975 /* Frameworks */,
 				27C9A4BC1582BB1A004FC975 /* Products */,
@@ -106,6 +105,7 @@
 		27C9A4BE1582BB1A004FC975 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27C9A50D1582BC71004FC975 /* CoreData.framework */,
 				27C9A4BF1582BB1A004FC975 /* UIKit.framework */,
 				27C9A4C11582BB1A004FC975 /* Foundation.framework */,
 				27C9A4C31582BB1A004FC975 /* CoreGraphics.framework */,
