@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27080D52158A9A72004D73AB /* FJEventosServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 27080D51158A9A72004D73AB /* FJEventosServices.m */; };
 		27582F6C15850C6C00C3BC63 /* FJEventoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27582F6B15850C6C00C3BC63 /* FJEventoCell.m */; };
 		27582F7015851C3300C3BC63 /* bugdefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 27582F6E15851C3300C3BC63 /* bugdefault.png */; };
 		27582F7115851C3300C3BC63 /* bugdefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27582F6F15851C3300C3BC63 /* bugdefault@2x.png */; };
@@ -34,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27080D50158A9A71004D73AB /* FJEventosServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJEventosServices.h; sourceTree = "<group>"; };
+		27080D51158A9A72004D73AB /* FJEventosServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJEventosServices.m; sourceTree = "<group>"; };
 		27582F6A15850C6C00C3BC63 /* FJEventoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJEventoCell.h; sourceTree = "<group>"; };
 		27582F6B15850C6C00C3BC63 /* FJEventoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJEventoCell.m; sourceTree = "<group>"; };
 		27582F6E15851C3300C3BC63 /* bugdefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugdefault.png; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				27C9A4FB1582BBE7004FC975 /* FJBUGAtomParserProtocol.h */,
 				27C9A4F61582BBD9004FC975 /* NSString+HTML.h */,
 				27C9A4F71582BBD9004FC975 /* NSString+HTML.m */,
+				27080D50158A9A71004D73AB /* FJEventosServices.h */,
+				27080D51158A9A72004D73AB /* FJEventosServices.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				27C9A50A1582BC09004FC975 /* Category.m in Sources */,
 				27C9A50B1582BC09004FC975 /* Category+Extended.m in Sources */,
 				27582F6C15850C6C00C3BC63 /* FJEventoCell.m in Sources */,
+				27080D52158A9A72004D73AB /* FJEventosServices.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

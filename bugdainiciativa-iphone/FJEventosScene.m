@@ -8,32 +8,20 @@
 
 #import "FJEventosScene.h"
 #import "FJEventoDetailSceneScene.h"
+#import "FJEventosServices.h"
 #import "Evento+Extended.h"
-#import "FJBUGAtomParser.h"
 #import "FJEventoCell.h"
 
 @interface FJEventosScene ()
 
-@property(nonatomic,strong) FJBUGAtomParser *eventosParser;
-
 -(void)refresh;
-//-(void)reloadImage;
+-(void)refreshed;
 
 @end
 
 @implementation FJEventosScene
 
 @synthesize eventos = _eventos;
-@synthesize eventosParser = _eventosParser;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -45,13 +33,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
     
-    /*
-    NSURL *url = [NSURL URLWithString:@"http://bugdainiciativa.com/feed/atom/"];
-    
-    self.eventosParser = [[FJBUGAtomParser alloc] initWithURL:url andDelegate:self];
-    
-    [self.eventosParser parse];
-     */
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshed) name:kEventosSynced object:[FJEventosServices sharedEventosServices]];
 }
 
 - (void)viewDidUnload
@@ -59,7 +41,8 @@
     [super viewDidUnload];
     
     self.eventos = nil;
-    self.eventosParser = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:[FJEventosServices sharedEventosServices]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -94,13 +77,6 @@
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     
     cell.startDate.text = [dateFormatter stringFromDate:evento.startdate];
-    /*
-    NSOperationQueue *operationQueue = [NSOperationQueue new];
-    [operationQueue addOperationWithBlock:^{
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink]];
-        cell.imageView.image = [UIImage imageWithData:imageData];
-    }];
-     */
     
     if( evento.imageData ){
         cell.image.image = [UIImage imageWithData:evento.imageData];
@@ -130,25 +106,18 @@
     }
 }
 
-#pragma mark - Parser delegate
-
--(void)bugAtomParser:(FJBUGAtomParser *)atomParser didParsedEventos:(NSArray *)eventos
-{
-    //self.eventos = eventos;
-    self.eventos = [Evento nextEvents];
-    
-    [self.tableView reloadData];
-}
-
 #pragma mark - Refresh
 
 -(void)refresh
 {
-    NSURL *url = [NSURL URLWithString:@"http://bugdainiciativa.com/feed/atom/"];
+    [[FJEventosServices sharedEventosServices] sync];
+}
+
+-(void)refreshed
+{
+    self.eventos = [Evento nextEvents];
     
-    self.eventosParser = [[FJBUGAtomParser alloc] initWithURL:url andDelegate:self];
-    
-    [self.eventosParser parse];
+    [self.tableView reloadData];
 }
 
 @end

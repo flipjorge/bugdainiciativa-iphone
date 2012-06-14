@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FJBUGAtomParserProtocol.h"
 
-@interface FJEventosScene : UITableViewController <FJBUGAtomParserProtocol>
+@interface FJEventosScene : UITableViewController
 
 @property(nonatomic, strong) NSArray *eventos;
 

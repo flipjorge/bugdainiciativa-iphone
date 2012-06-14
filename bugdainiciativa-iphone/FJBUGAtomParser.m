@@ -20,7 +20,7 @@
 
 @property(nonatomic, weak) id<FJBUGAtomParserProtocol> delegate;
 @property(nonatomic, strong) NSXMLParser *xmlParser;
-@property(nonatomic, copy) NSURL *url;
+@property(nonatomic, copy) NSData *data;
 
 @property(nonatomic, strong) NSMutableArray *eventos;
 @property(nonatomic, strong) NSMutableDictionary *currentEvento;
@@ -32,23 +32,23 @@
 
 @synthesize delegate = _delegate;
 @synthesize xmlParser = _xmlParser;
-@synthesize url = _url;
+@synthesize data = _data;
 @synthesize eventos = _eventos;
 @synthesize currentEvento = _currentEvento;
 
--(id)initWithURL:(NSURL*)url andDelegate:(id)delegate
+-(id)initWithData:(NSData*)data andDelegate:(id)delegate
 {
     self = [super init];
     if (self) {
         self.delegate = delegate;
-        self.url = url;
+        self.data = data;
     }
     return self;
 }
 
 -(void)parse
 {
-    self.xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:self.url];
+    self.xmlParser = [[NSXMLParser alloc] initWithData:self.data];
     self.xmlParser.delegate = self;
     [self.xmlParser parse];
 }
@@ -60,24 +60,6 @@
 
 -(void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    NSArray *eventosLocais = [Evento events];
-    
-    for (NSMutableDictionary *eventoTemporario in self.eventos) {
-        
-        BOOL existe = NO;
-        
-        for (Evento *eventoLocal in eventosLocais) {
-            if( [[eventoTemporario objectForKey:@"id"] isEqual:eventoLocal.id] ){
-                existe = YES;
-                break;
-            }
-        }
-        
-        if( !existe ){
-            [Evento generateEventoWithTitle:[eventoTemporario objectForKey:@"title"] content:[eventoTemporario objectForKey:@"content"] link:[eventoTemporario objectForKey:@"link"] id:[eventoTemporario objectForKey:@"id"] imageLink:[eventoTemporario objectForKey:@"imageLink"] location:[eventoTemporario objectForKey:@"location"] startDate:[eventoTemporario objectForKey:@"startdate"] endDate:[eventoTemporario objectForKey:@"enddate"]];
-        }
-    }
-    
     [self.delegate bugAtomParser:self didParsedEventos:self.eventos];
 }
 

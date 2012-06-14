@@ -10,6 +10,7 @@
 #import "FJAppDelegate.h"
 #import "FJCoreDataStack+Bug.h"
 #import "FJDirectory.h"
+#import "FJEventosServices.h"
 
 @implementation FJAppDelegate
 
@@ -48,6 +49,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [[FJEventosServices sharedEventosServices] sync];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

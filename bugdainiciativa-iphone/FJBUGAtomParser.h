@@ -10,7 +10,7 @@
 
 @interface FJBUGAtomParser : NSObject <NSXMLParserDelegate>
 
--(id)initWithURL:(NSURL*)url andDelegate:(id)delegate;
+-(id)initWithData:(NSData*)data andDelegate:(id)delegate;
 -(void)parse;
 
 @end
