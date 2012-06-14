@@ -23,6 +23,7 @@
     coreDataStack.storeType = NSSQLiteStoreType;
     [coreDataStack populateDatabase];
     
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:.56f green:.70f blue:.40f alpha:1]];
     // Override point for customization after application launch.
     return YES;
 }

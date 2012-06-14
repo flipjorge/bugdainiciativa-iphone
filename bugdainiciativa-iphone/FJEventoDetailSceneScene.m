@@ -55,9 +55,18 @@
     
     self.scroller.contentSize = CGSizeMake(self.scroller.bounds.size.width, self.contentLabel.bounds.size.height + self.contentLabel.frame.origin.y);
     
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.evento.imageLink]];
+    if( self.evento.imageData ){
+        self.image.image = [UIImage imageWithData:self.evento.imageData];
+    } else {
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.evento.imageLink]];
+        
+        if( imageData ){
+            self.image.image = [UIImage imageWithData:imageData];
+        } else {
+            self.image.image = [UIImage imageNamed:@"bugdefault.png"];
+        }
+    }
     
-    self.image.image = [UIImage imageWithData:imageData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

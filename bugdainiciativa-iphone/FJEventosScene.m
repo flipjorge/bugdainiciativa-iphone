@@ -10,6 +10,7 @@
 #import "FJEventoDetailSceneScene.h"
 #import "Evento+Extended.h"
 #import "FJBUGAtomParser.h"
+#import "FJEventoCell.h"
 
 @interface FJEventosScene ()
 
@@ -81,18 +82,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"EventoDefault";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    FJEventoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Evento *evento = [self.eventos objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = evento.title;
+    cell.title.text = evento.title;
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     
-    cell.detailTextLabel.text = [dateFormatter stringFromDate:evento.startdate];
+    cell.startDate.text = [dateFormatter stringFromDate:evento.startdate];
     /*
     NSOperationQueue *operationQueue = [NSOperationQueue new];
     [operationQueue addOperationWithBlock:^{
@@ -102,11 +103,15 @@
      */
     
     if( evento.imageData ){
-        cell.imageView.image = [UIImage imageWithData:evento.imageData];
+        cell.image.image = [UIImage imageWithData:evento.imageData];
     } else {
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink] ];
-        cell.imageView.image = [UIImage imageWithData:imageData];
+        cell.image.image = [UIImage imageWithData:imageData];
         evento.imageData = imageData;
+        
+        if( !imageData ){
+            cell.image.image = [UIImage imageNamed:@"bugdefault.png"];
+        }
     }
     
     
