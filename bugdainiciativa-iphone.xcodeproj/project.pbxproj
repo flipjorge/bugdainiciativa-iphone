@@ -11,6 +11,8 @@
 		27582F6C15850C6C00C3BC63 /* FJEventoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27582F6B15850C6C00C3BC63 /* FJEventoCell.m */; };
 		27582F7015851C3300C3BC63 /* bugdefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 27582F6E15851C3300C3BC63 /* bugdefault.png */; };
 		27582F7115851C3300C3BC63 /* bugdefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27582F6F15851C3300C3BC63 /* bugdefault@2x.png */; };
+		27AE52C7158E140D005FA58A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AE52C6158E140D005FA58A /* NSString+HTML.m */; };
+		27AE52CD158E1614005FA58A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AE52CC158E1614005FA58A /* GTMNSString+HTML.m */; };
 		27C9A4C01582BB1A004FC975 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C9A4BF1582BB1A004FC975 /* UIKit.framework */; };
 		27C9A4C21582BB1A004FC975 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C9A4C11582BB1A004FC975 /* Foundation.framework */; };
 		27C9A4C41582BB1A004FC975 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C9A4C31582BB1A004FC975 /* CoreGraphics.framework */; };
@@ -24,7 +26,6 @@
 		27C9A4F11582BBB3004FC975 /* FJCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A4EE1582BBB3004FC975 /* FJCoreDataStack.m */; };
 		27C9A4F21582BBB3004FC975 /* FJDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A4F01582BBB3004FC975 /* FJDirectory.m */; };
 		27C9A4F51582BBBD004FC975 /* FJCoreDataStack+Bug.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A4F41582BBBD004FC975 /* FJCoreDataStack+Bug.m */; };
-		27C9A4F81582BBD9004FC975 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A4F71582BBD9004FC975 /* NSString+HTML.m */; };
 		27C9A4FC1582BBE7004FC975 /* FJBUGAtomParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A4FA1582BBE7004FC975 /* FJBUGAtomParser.m */; };
 		27C9A5011582BBFA004FC975 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A4FE1582BBFA004FC975 /* Evento.m */; };
 		27C9A5021582BBFA004FC975 /* Evento+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A5001582BBFA004FC975 /* Evento+Extended.m */; };
@@ -41,6 +42,10 @@
 		27582F6B15850C6C00C3BC63 /* FJEventoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJEventoCell.m; sourceTree = "<group>"; };
 		27582F6E15851C3300C3BC63 /* bugdefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugdefault.png; sourceTree = "<group>"; };
 		27582F6F15851C3300C3BC63 /* bugdefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bugdefault@2x.png"; sourceTree = "<group>"; };
+		27AE52C5158E140D005FA58A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		27AE52C6158E140D005FA58A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		27AE52CB158E1614005FA58A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		27AE52CC158E1614005FA58A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		27C9A4BB1582BB1A004FC975 /* bugdainiciativa-iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bugdainiciativa-iphone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C9A4BF1582BB1A004FC975 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		27C9A4C11582BB1A004FC975 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,8 +68,6 @@
 		27C9A4F01582BBB3004FC975 /* FJDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJDirectory.m; sourceTree = "<group>"; };
 		27C9A4F31582BBBD004FC975 /* FJCoreDataStack+Bug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FJCoreDataStack+Bug.h"; sourceTree = "<group>"; };
 		27C9A4F41582BBBD004FC975 /* FJCoreDataStack+Bug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FJCoreDataStack+Bug.m"; sourceTree = "<group>"; };
-		27C9A4F61582BBD9004FC975 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
-		27C9A4F71582BBD9004FC975 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		27C9A4F91582BBE7004FC975 /* FJBUGAtomParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJBUGAtomParser.h; sourceTree = "<group>"; };
 		27C9A4FA1582BBE7004FC975 /* FJBUGAtomParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJBUGAtomParser.m; sourceTree = "<group>"; };
 		27C9A4FB1582BBE7004FC975 /* FJBUGAtomParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJBUGAtomParserProtocol.h; sourceTree = "<group>"; };
@@ -198,6 +201,10 @@
 				27C9A4EE1582BBB3004FC975 /* FJCoreDataStack.m */,
 				27C9A4EF1582BBB3004FC975 /* FJDirectory.h */,
 				27C9A4F01582BBB3004FC975 /* FJDirectory.m */,
+				27AE52CB158E1614005FA58A /* GTMNSString+HTML.h */,
+				27AE52CC158E1614005FA58A /* GTMNSString+HTML.m */,
+				27AE52C5158E140D005FA58A /* NSString+HTML.h */,
+				27AE52C6158E140D005FA58A /* NSString+HTML.m */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -208,8 +215,6 @@
 				27C9A4F91582BBE7004FC975 /* FJBUGAtomParser.h */,
 				27C9A4FA1582BBE7004FC975 /* FJBUGAtomParser.m */,
 				27C9A4FB1582BBE7004FC975 /* FJBUGAtomParserProtocol.h */,
-				27C9A4F61582BBD9004FC975 /* NSString+HTML.h */,
-				27C9A4F71582BBD9004FC975 /* NSString+HTML.m */,
 				27080D50158A9A71004D73AB /* FJEventosServices.h */,
 				27080D51158A9A72004D73AB /* FJEventosServices.m */,
 			);
@@ -290,7 +295,6 @@
 				27C9A4F11582BBB3004FC975 /* FJCoreDataStack.m in Sources */,
 				27C9A4F21582BBB3004FC975 /* FJDirectory.m in Sources */,
 				27C9A4F51582BBBD004FC975 /* FJCoreDataStack+Bug.m in Sources */,
-				27C9A4F81582BBD9004FC975 /* NSString+HTML.m in Sources */,
 				27C9A4FC1582BBE7004FC975 /* FJBUGAtomParser.m in Sources */,
 				27C9A5011582BBFA004FC975 /* Evento.m in Sources */,
 				27C9A5021582BBFA004FC975 /* Evento+Extended.m in Sources */,
@@ -299,6 +303,8 @@
 				27C9A50B1582BC09004FC975 /* Category+Extended.m in Sources */,
 				27582F6C15850C6C00C3BC63 /* FJEventoCell.m in Sources */,
 				27080D52158A9A72004D73AB /* FJEventosServices.m in Sources */,
+				27AE52C7158E140D005FA58A /* NSString+HTML.m in Sources */,
+				27AE52CD158E1614005FA58A /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

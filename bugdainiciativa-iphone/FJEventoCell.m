@@ -7,6 +7,7 @@
 //
 
 #import "FJEventoCell.h"
+#import "NSString+HTML.h"
 
 @implementation FJEventoCell
 
@@ -20,7 +21,7 @@
 {
     _evento = evento;
     
-    self.title.text = evento.title;
+    self.title.text = [evento.title stringByDecodingHTMLEntities];
     
     //start date
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
@@ -34,6 +35,8 @@
     if( evento.imageData ){
         self.image.image = [UIImage imageWithData:evento.imageData];
     } else {
+        
+        self.image.image = nil;
         
         NSOperationQueue *queue = [NSOperationQueue new];
         [queue addOperationWithBlock:^{
@@ -52,7 +55,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
+    //[super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }

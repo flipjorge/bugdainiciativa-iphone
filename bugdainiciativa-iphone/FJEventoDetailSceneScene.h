@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Evento.h"
 
-@interface FJEventoDetailSceneScene : UIViewController
+@interface FJEventoDetailSceneScene : UIViewController <UIWebViewDelegate>
 
 @property(nonatomic, strong) Evento *evento;
 
@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (weak, nonatomic) IBOutlet UILabel *dataLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *contentWebView;
 
 @end
