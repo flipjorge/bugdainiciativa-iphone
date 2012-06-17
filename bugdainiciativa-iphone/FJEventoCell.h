@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Evento.h"
 
 @interface FJEventoCell : UITableViewCell
 
 @property(nonatomic, strong) IBOutlet UIImageView *image;
 @property(nonatomic, strong) IBOutlet UILabel *title;
 @property(nonatomic, strong) IBOutlet UILabel *startDate;
+
+@property(nonatomic, strong) Evento *evento;
 
 @end

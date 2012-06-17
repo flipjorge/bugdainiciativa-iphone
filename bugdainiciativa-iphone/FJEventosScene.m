@@ -69,27 +69,7 @@
     
     Evento *evento = [self.eventos objectAtIndex:indexPath.row];
     
-    cell.title.text = evento.title;
-    
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    [dateFormatter setLocale:[NSLocale currentLocale]];
-    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
-    
-    cell.startDate.text = [dateFormatter stringFromDate:evento.startdate];
-    
-    if( evento.imageData ){
-        cell.image.image = [UIImage imageWithData:evento.imageData];
-    } else {
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink] ];
-        cell.image.image = [UIImage imageWithData:imageData];
-        evento.imageData = imageData;
-        
-        if( !imageData ){
-            cell.image.image = [UIImage imageNamed:@"bugdefault.png"];
-        }
-    }
-    
+    cell.evento = evento;
     
     return cell;
 }

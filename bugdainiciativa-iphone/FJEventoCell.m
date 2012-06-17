@@ -14,13 +14,40 @@
 @synthesize title = _title;
 @synthesize startDate = _startDate;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+@synthesize evento = _evento;
+
+-(void)setEvento:(Evento *)evento
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+    _evento = evento;
+    
+    self.title.text = evento.title;
+    
+    //start date
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    
+    self.startDate.text = [dateFormatter stringFromDate:evento.startdate];
+    
+    //imagem
+    if( evento.imageData ){
+        self.image.image = [UIImage imageWithData:evento.imageData];
+    } else {
+        
+        NSOperationQueue *queue = [NSOperationQueue new];
+        [queue addOperationWithBlock:^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink] ];
+            self.image.image = [UIImage imageWithData:imageData];
+            evento.imageData = imageData;
+            
+            if( !imageData ){
+                self.image.image = [UIImage imageNamed:@"bugdefault.png"];
+            }
+        }];
+        
     }
-    return self;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
