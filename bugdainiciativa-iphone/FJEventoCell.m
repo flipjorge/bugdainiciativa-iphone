@@ -14,6 +14,7 @@
 @synthesize image = _image;
 @synthesize title = _title;
 @synthesize startDate = _startDate;
+@synthesize activity = _activity;
 
 @synthesize evento = _evento;
 
@@ -34,9 +35,11 @@
     //imagem
     if( evento.imageData ){
         self.image.image = [UIImage imageWithData:evento.imageData];
+        [self.activity stopAnimating];
     } else {
         
         self.image.image = nil;
+        [self.activity startAnimating];
         
         NSOperationQueue *queue = [NSOperationQueue new];
         [queue addOperationWithBlock:^{
@@ -47,6 +50,8 @@
             if( !imageData ){
                 self.image.image = [UIImage imageNamed:@"bugdefault.png"];
             }
+            
+            [self.activity stopAnimating];
         }];
         
     }

@@ -11,9 +11,10 @@
 
 @interface FJEventoCell : UITableViewCell
 
-@property(nonatomic, strong) IBOutlet UIImageView *image;
-@property(nonatomic, strong) IBOutlet UILabel *title;
-@property(nonatomic, strong) IBOutlet UILabel *startDate;
+@property(nonatomic, weak) IBOutlet UIImageView *image;
+@property(nonatomic, weak) IBOutlet UILabel *title;
+@property(nonatomic, weak) IBOutlet UILabel *startDate;
+@property(nonatomic, weak) IBOutlet UIActivityIndicatorView *activity;
 
 @property(nonatomic, strong) Evento *evento;
 

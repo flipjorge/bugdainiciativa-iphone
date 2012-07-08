@@ -42,36 +42,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    /*
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    [dateFormatter setLocale:[NSLocale currentLocale]];
-    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
-    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
-    
-    self.title = self.evento.title;
-    self.dataLabel.text = [dateFormatter stringFromDate:self.evento.startdate];
-    */
-    //self.contentLabel.text = [self.evento.content stringByConvertingHTMLToPlainText];
-    //[self.contentLabel sizeToFit];
-    
     self.contentWebView.delegate = self;
     [self.contentWebView loadHTMLString:self.evento.content baseURL:nil];
     self.contentWebView.scrollView.bounces = NO;
-    
-    /*
-    if( self.evento.imageData ){
-        self.image.image = [UIImage imageWithData:self.evento.imageData];
-    } else {
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.evento.imageLink]];
-        
-        if( imageData ){
-            self.image.image = [UIImage imageWithData:imageData];
-        } else {
-            self.image.image = [UIImage imageNamed:@"bugdefault.png"];
-        }
-    }
-     */
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

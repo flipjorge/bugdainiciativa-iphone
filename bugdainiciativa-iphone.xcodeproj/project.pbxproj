@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		27080D52158A9A72004D73AB /* FJEventosServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 27080D51158A9A72004D73AB /* FJEventosServices.m */; };
+		2719E71D15A9DB2700320BCE /* FJPullRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2719E71C15A9DB2600320BCE /* FJPullRefreshView.m */; };
+		2719E72015A9DB7400320BCE /* FJPullRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2719E71F15A9DB7400320BCE /* FJPullRefreshView.xib */; };
 		27582F6C15850C6C00C3BC63 /* FJEventoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27582F6B15850C6C00C3BC63 /* FJEventoCell.m */; };
 		27582F7015851C3300C3BC63 /* bugdefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 27582F6E15851C3300C3BC63 /* bugdefault.png */; };
 		27582F7115851C3300C3BC63 /* bugdefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27582F6F15851C3300C3BC63 /* bugdefault@2x.png */; };
@@ -38,6 +40,9 @@
 /* Begin PBXFileReference section */
 		27080D50158A9A71004D73AB /* FJEventosServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJEventosServices.h; sourceTree = "<group>"; };
 		27080D51158A9A72004D73AB /* FJEventosServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJEventosServices.m; sourceTree = "<group>"; };
+		2719E71B15A9DB2600320BCE /* FJPullRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJPullRefreshView.h; sourceTree = "<group>"; };
+		2719E71C15A9DB2600320BCE /* FJPullRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJPullRefreshView.m; sourceTree = "<group>"; };
+		2719E71F15A9DB7400320BCE /* FJPullRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FJPullRefreshView.xib; sourceTree = "<group>"; };
 		27582F6A15850C6C00C3BC63 /* FJEventoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJEventoCell.h; sourceTree = "<group>"; };
 		27582F6B15850C6C00C3BC63 /* FJEventoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJEventoCell.m; sourceTree = "<group>"; };
 		27582F6E15851C3300C3BC63 /* bugdefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugdefault.png; sourceTree = "<group>"; };
@@ -190,6 +195,9 @@
 				27C9A4EA1582BBA6004FC975 /* FJEventosScene.m */,
 				27582F6A15850C6C00C3BC63 /* FJEventoCell.h */,
 				27582F6B15850C6C00C3BC63 /* FJEventoCell.m */,
+				2719E71B15A9DB2600320BCE /* FJPullRefreshView.h */,
+				2719E71C15A9DB2600320BCE /* FJPullRefreshView.m */,
+				2719E71F15A9DB7400320BCE /* FJPullRefreshView.xib */,
 			);
 			name = eventos;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 				27C9A4D61582BB1A004FC975 /* MainStoryboard_iPad.storyboard in Resources */,
 				27582F7015851C3300C3BC63 /* bugdefault.png in Resources */,
 				27582F7115851C3300C3BC63 /* bugdefault@2x.png in Resources */,
+				2719E72015A9DB7400320BCE /* FJPullRefreshView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +314,7 @@
 				27080D52158A9A72004D73AB /* FJEventosServices.m in Sources */,
 				27AE52C7158E140D005FA58A /* NSString+HTML.m in Sources */,
 				27AE52CD158E1614005FA58A /* GTMNSString+HTML.m in Sources */,
+				2719E71D15A9DB2700320BCE /* FJPullRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +402,7 @@
 				GCC_PREFIX_HEADER = "bugdainiciativa-iphone/bugdainiciativa-iphone-Prefix.pch";
 				INFOPLIST_FILE = "bugdainiciativa-iphone/bugdainiciativa-iphone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -403,6 +414,7 @@
 				GCC_PREFIX_HEADER = "bugdainiciativa-iphone/bugdainiciativa-iphone-Prefix.pch";
 				INFOPLIST_FILE = "bugdainiciativa-iphone/bugdainiciativa-iphone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

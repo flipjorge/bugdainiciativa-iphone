@@ -53,6 +53,10 @@
     
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:sort];
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"startdate >= %@", [NSDate date]];
+    
+    [fetchRequest setPredicate:predicate];
+    
     return [context executeFetchRequest:fetchRequest error:nil];
 }
 

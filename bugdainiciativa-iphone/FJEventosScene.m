@@ -11,8 +11,12 @@
 #import "FJEventosServices.h"
 #import "Evento+Extended.h"
 #import "FJEventoCell.h"
+#import "FJPullRefreshView.h"
 
 @interface FJEventosScene ()
+
+@property(nonatomic, weak) FJPullRefreshView *pullRefreshView;
+@property(nonatomic, assign) BOOL refreshing;
 
 -(void)refresh;
 -(void)refreshed;
@@ -22,6 +26,8 @@
 @implementation FJEventosScene
 
 @synthesize eventos = _eventos;
+@synthesize pullRefreshView = _pullRefreshView;
+@synthesize refreshing = _refreshing;
 
 - (void)viewDidLoad
 {
@@ -34,6 +40,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshed) name:kEventosSynced object:[FJEventosServices sharedEventosServices]];
+    
+    //refresh view
+    self.pullRefreshView = [[[NSBundle mainBundle] loadNibNamed:@"FJPullRefreshView" owner:self options:nil] lastObject];
+    
+    self.pullRefreshView.frame = CGRectOffset(self.pullRefreshView.frame, 0, - self.pullRefreshView.frame.size.height);
+    
+    [self.tableView addSubview:self.pullRefreshView];
+    
 }
 
 - (void)viewDidUnload
@@ -90,14 +104,58 @@
 
 -(void)refresh
 {
+    self.refreshing = YES;
+    
+    self.tableView.scrollEnabled = NO;
+    
+    [UIView animateWithDuration:.3 animations:^{
+        self.tableView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
+    }];
+    
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    [self.pullRefreshView showRefreshingMessage];
+    
     [[FJEventosServices sharedEventosServices] sync];
 }
 
 -(void)refreshed
 {
+    self.refreshing = NO;
+    
     self.eventos = [Evento nextEvents];
     
+    [UIView animateWithDuration:.3 animations:^{
+        self.tableView.contentInset =  UIEdgeInsetsZero;
+    }];
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    
+    self.tableView.scrollEnabled = YES;
+    
+    [self.pullRefreshView showPullMessage];
+    
     [self.tableView reloadData];
+}
+
+#pragma mark - Pull to refresh
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( !self.refreshing ){
+        if( scrollView.contentOffset.y < - 99.0f ){
+            [self.pullRefreshView showReleaseMessage];
+        } else {
+            [self.pullRefreshView showPullMessage];
+        }
+    }
+}
+
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    if( scrollView.contentOffset.y < - 100.0f ){
+        [self refresh];
+    }
 }
 
 @end

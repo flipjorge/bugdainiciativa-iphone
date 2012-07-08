@@ -27,6 +27,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="ow3-Az-6d7">
+                                            <rect key="frame" x="142" y="30" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" red="0.011764707040000001" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        </activityIndicatorView>
                                         <view contentMode="scaleToFill" id="xC0-hq-MAk">
                                             <rect key="frame" x="0.0" y="91" width="320" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,6 +55,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="activity" destination="ow3-Az-6d7" id="pdI-GR-t23"/>
                                     <outlet property="image" destination="vLe-Wn-CYg" id="WOD-gt-pnN"/>
                                     <outlet property="startDate" destination="9AI-VS-A0I" id="YmP-op-LSB"/>
                                     <outlet property="title" destination="zfe-Ej-gCc" id="Drp-om-o7T"/>
@@ -123,6 +129,7 @@
         <class className="FJEventoCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FJEventoCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="startDate" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="title" candidateClass="UILabel"/>
