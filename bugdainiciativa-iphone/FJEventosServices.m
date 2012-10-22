@@ -54,7 +54,9 @@ static FJEventosServices *_sharedEventosServices;
     
     [operationQueue addOperationWithBlock:^{
         
-        NSURL *dataURL = [NSURL URLWithString:@"http://bugdainiciativa.com/feed/atom/"];
+        //NSURL *dataURL = [NSURL URLWithString:@"http://bugdainiciativa.com/feed/atom/"];
+        //NSURL *dataURL = [NSURL URLWithString:@"http://bugdainiciativa.com/api/"];
+        NSURL *dataURL = [NSURL URLWithString:@"http://bugdainiciativa.com/newsletter/"];
         
         NSData *data = [NSData dataWithContentsOfURL:dataURL];
         

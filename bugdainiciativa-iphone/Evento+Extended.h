@@ -17,4 +17,6 @@
 +(NSArray*)events;
 +(NSArray*)nextEvents;
 
+-(void)setImageData:(NSData *)imageData;
+
 @end

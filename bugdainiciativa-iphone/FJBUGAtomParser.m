@@ -9,6 +9,7 @@
 #import "FJBUGAtomParser.h"
 #import "FJBUGAtomParserProtocol.h"
 #import "Evento+Extended.h"
+#import "NSString+HTML.h"
 
 @interface FJBUGAtomParser()
 {
@@ -65,6 +66,7 @@
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
+    
     currentString = [NSMutableString new];
     
     if( [elementName isEqualToString:@"entry"] ){
@@ -102,8 +104,16 @@
     NSDateFormatter *dateFormatter;
     
     if( [elementName isEqualToString:@"title"] && isEntries ){
+        
+        //decode
+        currentString = [NSMutableString stringWithString:[[NSString stringWithUTF8String:[currentString cStringUsingEncoding:NSISOLatin1StringEncoding]] stringByDecodingHTMLEntities]];
+        
         [self.currentEvento setObject:currentString forKey:@"title"];
     } else if( [elementName isEqualToString:@"content"] && isEntries ){
+        
+        //decode
+        currentString = [NSMutableString stringWithString:[[NSString stringWithUTF8String:[currentString cStringUsingEncoding:NSISOLatin1StringEncoding]] stringByDecodingHTMLEntities]];
+        
         [self.currentEvento setObject:currentString forKey:@"content"];
     } else if( [elementName isEqualToString:@"event_start_date"] && isEntries ){
         

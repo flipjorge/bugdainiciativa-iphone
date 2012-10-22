@@ -35,6 +35,15 @@
 		27C9A50A1582BC09004FC975 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A5061582BC09004FC975 /* Category.m */; };
 		27C9A50B1582BC09004FC975 /* Category+Extended.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C9A5081582BC09004FC975 /* Category+Extended.m */; };
 		27C9A50E1582BC71004FC975 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C9A50D1582BC71004FC975 /* CoreData.framework */; };
+		27E9F04416349CDE003C7DAF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E9F04316349CDD003C7DAF /* Default.png */; };
+		27E9F04616349CF2003C7DAF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E9F04516349CF2003C7DAF /* Default@2x.png */; };
+		27E9F04816349CF5003C7DAF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E9F04716349CF5003C7DAF /* Default-568h@2x.png */; };
+		27E9F04B1634A51C003C7DAF /* FJSplashSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E9F04A1634A51B003C7DAF /* FJSplashSegue.m */; };
+		27E9F04F1634A62D003C7DAF /* bug4retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E9F04C1634A62D003C7DAF /* bug4retina.png */; };
+		27E9F0501634A62D003C7DAF /* bug35@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E9F04D1634A62D003C7DAF /* bug35@2x.png */; };
+		27E9F0511634A62D003C7DAF /* bug35.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E9F04E1634A62D003C7DAF /* bug35.png */; };
+		27E9F0541634A7BC003C7DAF /* FJSplashSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E9F0531634A7BB003C7DAF /* FJSplashSceneViewController.m */; };
+		27E9F0581634B76D003C7DAF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E9F0571634B76D003C7DAF /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +95,17 @@
 		27C9A5071582BC09004FC975 /* Category+Extended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Category+Extended.h"; sourceTree = "<group>"; };
 		27C9A5081582BC09004FC975 /* Category+Extended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Category+Extended.m"; sourceTree = "<group>"; };
 		27C9A50D1582BC71004FC975 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		27E9F04316349CDD003C7DAF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		27E9F04516349CF2003C7DAF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		27E9F04716349CF5003C7DAF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		27E9F0491634A51B003C7DAF /* FJSplashSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSplashSegue.h; sourceTree = "<group>"; };
+		27E9F04A1634A51B003C7DAF /* FJSplashSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSplashSegue.m; sourceTree = "<group>"; };
+		27E9F04C1634A62D003C7DAF /* bug4retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bug4retina.png; sourceTree = "<group>"; };
+		27E9F04D1634A62D003C7DAF /* bug35@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug35@2x.png"; sourceTree = "<group>"; };
+		27E9F04E1634A62D003C7DAF /* bug35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bug35.png; sourceTree = "<group>"; };
+		27E9F0521634A7BA003C7DAF /* FJSplashSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJSplashSceneViewController.h; sourceTree = "<group>"; };
+		27E9F0531634A7BB003C7DAF /* FJSplashSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJSplashSceneViewController.m; sourceTree = "<group>"; };
+		27E9F0571634B76D003C7DAF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27E9F0581634B76D003C7DAF /* QuartzCore.framework in Frameworks */,
 				27C9A50E1582BC71004FC975 /* CoreData.framework in Frameworks */,
 				27C9A4C01582BB1A004FC975 /* UIKit.framework in Frameworks */,
 				27C9A4C21582BB1A004FC975 /* Foundation.framework in Frameworks */,
@@ -106,6 +127,12 @@
 		27582F7215851C3700C3BC63 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				27E9F04C1634A62D003C7DAF /* bug4retina.png */,
+				27E9F04D1634A62D003C7DAF /* bug35@2x.png */,
+				27E9F04E1634A62D003C7DAF /* bug35.png */,
+				27E9F04716349CF5003C7DAF /* Default-568h@2x.png */,
+				27E9F04516349CF2003C7DAF /* Default@2x.png */,
+				27E9F04316349CDD003C7DAF /* Default.png */,
 				27582F6E15851C3300C3BC63 /* bugdefault.png */,
 				27582F6F15851C3300C3BC63 /* bugdefault@2x.png */,
 			);
@@ -132,6 +159,7 @@
 		27C9A4BE1582BB1A004FC975 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27E9F0571634B76D003C7DAF /* QuartzCore.framework */,
 				27C9A50D1582BC71004FC975 /* CoreData.framework */,
 				27C9A4BF1582BB1A004FC975 /* UIKit.framework */,
 				27C9A4C11582BB1A004FC975 /* Foundation.framework */,
@@ -143,6 +171,7 @@
 		27C9A4C51582BB1A004FC975 /* bugdainiciativa-iphone */ = {
 			isa = PBXGroup;
 			children = (
+				27E9F05A1634C3DF003C7DAF /* splash scene */,
 				27582F7215851C3700C3BC63 /* resources */,
 				27C9A4E61582BB8D004FC975 /* libs */,
 				27C9A50C1582BC34004FC975 /* utils */,
@@ -229,6 +258,17 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
+		27E9F05A1634C3DF003C7DAF /* splash scene */ = {
+			isa = PBXGroup;
+			children = (
+				27E9F0491634A51B003C7DAF /* FJSplashSegue.h */,
+				27E9F04A1634A51B003C7DAF /* FJSplashSegue.m */,
+				27E9F0521634A7BA003C7DAF /* FJSplashSceneViewController.h */,
+				27E9F0531634A7BB003C7DAF /* FJSplashSceneViewController.m */,
+			);
+			name = "splash scene";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,6 +327,12 @@
 				27582F7015851C3300C3BC63 /* bugdefault.png in Resources */,
 				27582F7115851C3300C3BC63 /* bugdefault@2x.png in Resources */,
 				2719E72015A9DB7400320BCE /* FJPullRefreshView.xib in Resources */,
+				27E9F04416349CDE003C7DAF /* Default.png in Resources */,
+				27E9F04616349CF2003C7DAF /* Default@2x.png in Resources */,
+				27E9F04816349CF5003C7DAF /* Default-568h@2x.png in Resources */,
+				27E9F04F1634A62D003C7DAF /* bug4retina.png in Resources */,
+				27E9F0501634A62D003C7DAF /* bug35@2x.png in Resources */,
+				27E9F0511634A62D003C7DAF /* bug35.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +361,8 @@
 				27AE52C7158E140D005FA58A /* NSString+HTML.m in Sources */,
 				27AE52CD158E1614005FA58A /* GTMNSString+HTML.m in Sources */,
 				2719E71D15A9DB2700320BCE /* FJPullRefreshView.m in Sources */,
+				27E9F04B1634A51C003C7DAF /* FJSplashSegue.m in Sources */,
+				27E9F0541634A7BC003C7DAF /* FJSplashSceneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +449,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "bugdainiciativa-iphone/bugdainiciativa-iphone-Prefix.pch";
 				INFOPLIST_FILE = "bugdainiciativa-iphone/bugdainiciativa-iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -413,6 +462,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "bugdainiciativa-iphone/bugdainiciativa-iphone-Prefix.pch";
 				INFOPLIST_FILE = "bugdainiciativa-iphone/bugdainiciativa-iphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

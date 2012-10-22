@@ -22,7 +22,7 @@
 {
     _evento = evento;
     
-    self.title.text = [evento.title stringByDecodingHTMLEntities];
+    self.title.text = evento.title;//[[NSString stringWithUTF8String: [evento.title cStringUsingEncoding:NSISOLatin1StringEncoding]] stringByDecodingHTMLEntities];
     
     //start date
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
@@ -32,10 +32,11 @@
     
     self.startDate.text = [dateFormatter stringFromDate:evento.startdate];
     
+    [self.activity stopAnimating];
+    
     //imagem
     if( evento.imageData ){
         self.image.image = [UIImage imageWithData:evento.imageData];
-        [self.activity stopAnimating];
     } else {
         
         self.image.image = nil;
@@ -43,15 +44,20 @@
         
         NSOperationQueue *queue = [NSOperationQueue new];
         [queue addOperationWithBlock:^{
+            
             NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:evento.imageLink] ];
-            self.image.image = [UIImage imageWithData:imageData];
-            evento.imageData = imageData;
             
-            if( !imageData ){
-                self.image.image = [UIImage imageNamed:@"bugdefault.png"];
-            }
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                self.image.image = [UIImage imageWithData:imageData];
+                evento.imageData = imageData;
+                
+                if( !imageData ){
+                    self.image.image = [UIImage imageNamed:@"bugdefault.png"];
+                }
+                
+                [self.activity stopAnimating];
+            }];
             
-            [self.activity stopAnimating];
         }];
         
     }

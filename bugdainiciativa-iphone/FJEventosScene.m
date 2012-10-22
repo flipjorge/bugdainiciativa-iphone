@@ -47,7 +47,6 @@
     self.pullRefreshView.frame = CGRectOffset(self.pullRefreshView.frame, 0, - self.pullRefreshView.frame.size.height);
     
     [self.tableView addSubview:self.pullRefreshView];
-    
 }
 
 - (void)viewDidUnload
@@ -56,7 +55,7 @@
     
     self.eventos = nil;
     
-    [[NSNotificationCenter defaultCenter] removeObserver:[FJEventosServices sharedEventosServices]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

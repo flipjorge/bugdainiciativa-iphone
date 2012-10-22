@@ -25,7 +25,9 @@
     [coreDataStack populateDatabase];
     
     //apperance
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:.56f green:.70f blue:.40f alpha:1]];
+    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:.0f green:.0f blue:.0f alpha:1]];
+    
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
     return YES;
 }
